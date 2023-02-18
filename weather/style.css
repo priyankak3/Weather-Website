@@ -77,6 +77,10 @@ ul li a:hover{
     padding: 8px 8px;
     border-radius: 50px;
 }
+.search{
+  width:60%;
+  
+}
 .search input{
     border-radius: 20px;
     font-size: 20px;
