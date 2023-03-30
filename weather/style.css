@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital@1&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital@1&display=swap');*/
 body{
     padding: 0;
     margin:0;
@@ -7,7 +6,7 @@ body{
 .background{
     background:rgba(0, 0,0,0.5) url('background.jpg');
     background-size: cover;
-    background-blend-mode: darken;
+    /*background-blend-mode: darken; */
 }
 a{
     width: 140 px;
@@ -35,6 +34,9 @@ a:hover{
     justify-content: center;
     cursor: pointer;
     
+}
+.nav-element{
+    text-align: end;
 }
 .logo{
     align-items: left;
@@ -77,16 +79,48 @@ ul li a:hover{
     padding: 8px 8px;
     border-radius: 50px;
 }
+.date-container{
+    font-weight: 100;
+    color: white;
+}
+.date-container .time{
+    font-size: 70px;
+}
+
+.date-container #am-pm{
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.date-container .date{
+    font-size: 30px;
+}
+
 .search{
-  width:60%;
+  width:100%;
+   
+   text-align: center; 
   
 }
 .search input{
     border-radius: 20px;
     font-size: 20px;
     text-align: center;
+    
+
 }
 #search{
-    border-radius: 20px;
+  border-radius: 20px;
     font-size: 15px;
+
+}
+#butt{
+    /* margin: 0 600px; */
+    border-radius: 20px;
+    
+  }
+
+.weather-status{
+    text-align: center;
+    color:white
 }
