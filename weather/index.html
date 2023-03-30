@@ -2,31 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>MAUSAM</title>
-    <link rel="icon" type="image/x-icon" href="icon.png">
+    <title>CLIMASSIST</title>
+<link rel="icon" type="image/x-icon" href="icon.png">
 </head>
 <body class="background">
-    <script src="script.js"></script>
-    <header>
-        <div class="navbar">
-            <div class="logo">
-                <img src="weather2.jpeg" alt="Logo">
-            </div>
-            
-            <ul class="nav-element">
-                <li><a href="#Home">Home</a></li>
-                <li><a href="#About-Us">About Us</a></li>
-            </ul>
-            <div class="search">
-                <input type="text" id="input" placeholder="Enter City Name">
-                <button id="search">Search</button>
-            </div>
+    <script src="app.js"></script>
+    <div class="date-container">
+        <div class="time" id="time">
+            12:30 <span id="am-pm">PM</span>
+        </div>
+        <div class="date" id="date">
+            Monday, 25 May
         </div>
 
-    </header>
+    </div>
+        
+            <div class="search" >
+                <input type="text" id="inputcity" placeholder="Enter City Name" autocomplete="on">
+                <button onclick="searchTemperature()" type="button" id="butt" >Search</button>
+            </div>
+            <div class="weather-status">
+                
+                <h2 id="city" >Mumbai</h2>
+                <h2><span id="temp">38.06</span>&deg;C</h2>
+                <h3>Min temp:<span id="temp_min">10</span>&deg;C</h3>
+                <h3>Max temp:<span id="temp_max">50</span>&deg;C</h3>
+                <h2 class="lead" id="weather">Clouds</h2>
+                    <div class="pollution">
+                        <div class="poll" id="poll">
+                            CO: <span id="co">24.56</span>
+                            <div class="ozone" id="ozone">
+                                Ozone: <span id="oz">93.95   </span>
+                                SO2: <span id="so2">18.22</span>                       
+                        </div>
+                        
+            </div>
+           
+            
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+        <script src="script.js"></script>
+    </body>
+    </html>
+    
+    
     <main>
 
     </main>
