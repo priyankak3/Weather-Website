@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Plan Your Route</title>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+    <!-- geolocation  -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+<!-- mapbox -->
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css"
+      rel="stylesheet"/>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""/>
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin="">
+    </script>
+<!-- leaflet routing machine -->
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.css" />
+
+  <!-- css  -->
+    <link rel="stylesheet" href="/index.css" />
+  <!-- index.js -->
+  <script src="index.js"></script>
+
+    <style>
+  body {
+    background-color: #e0e7ff;
+  background-image: linear-gradient(0deg, rgba(211,225,253,0.5), rgba(211,225,253,0.5)), url('https://source.unsplash.com/250x250/?weather,snow,rain,sun,moon');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  }
+
+  #Details {
+    text-align: center;
+    margin: 1em auto;
+    width: 50%;
+  }
+
+  #Details h2 {
+    margin: 0.5em 0;
+  }
+
+  #Details input {
+    padding: 0.5em;
+    border: 1px solid #5B5B5B;
+    border-radius: 5px;
+    margin: 0 1em;
+  }
+
+  #Details button {
+    background-color: #5B5B5B;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    margin: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  #Details button:hover {
+    background-color: #000;
+  }
+
+  hr {
+    margin: 2em auto;
+    height: 0.5em;
+    width: 15%;
+    background-color: #5B5B5B;
+    border: none;
+  }
+
+  #mapid {
+    height: 600px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid black;
+  }
+
+  th {
+    background-color: #ddd;
+    font-weight: bold;
+  }
+
+  .mapbox-directions-instructions {
+    overflow: auto !important;
+  }
+
+  div#geocoder-search {
+    width: 25em;
+  }
+
+  .marker {
+    font-size: 3em;
+    color: blue;
+    cursor: pointer;
+    background-image: url("https://i.imgur.com/WbMOfMl.png");
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .marker img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+</style>
+
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center; font-family: 'Times New Roman', Times, serif">
+      WeatherRoute
+    </h1>
+    <h2 style="text-align: center; font-family: 'Times New Roman', Times, serif">
+      Plan Your Journey Safely with Accurate Weather Information
+    </h2>
+
+    <hr/>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+
+    <div class="Details">
+      <form id="routeForm">
+        <fieldset id="Details">
+          <legend><h2>Enter details</h2></legend>
+          <label for="source">Source:</label>
+          <input type="text" id="src" placeholder="Enter source city" />
+          <label for="destination">Destination:</label>
+          <input type="text" id="dst" placeholder="Enter destination city" />
+          <label for="modeoftrans">Mode of transport:</label>
+          <select id="mode">
+            <option value="driving-car">Driving</option>
+            <option value="cycling-regular">Cycling</option>
+            <option value="foot-walking">Walking</option>
+          </select>
+
+          <button id="getWeatherBtn" type="submit">Get Route</button>
+          <button id="refresh-btn">Search Again</button>
+        </fieldset>
+      </form>
+    </div>
+  <hr />
+    <div id="mapid"></div>
+<hr />
+      <div class="Inst">
+        <h2 id="instruction"></h2>
+      </div>
+      <div id="map"></div>
+    
+  </body>
+  
+</html>
