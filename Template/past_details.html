@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/past_details.css') }}">
+     <title>CLIMASSIST</title>
+<link rel="icon" type="image/x-icon" href="icon.png">
+<input type="checkbox" id="hamburger-input" class="burger-shower" />
+  <label id="hamburger-menu" for="hamburger-input">
+  <nav id="sidebar-menu">
+    <h3 id="m">Menu</h3>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/highlights">Details</a></li>
+      <li><a href="/pollutants">Pollutants</a></li>
+      <li><a href="/past_details">Past Details</a></li>
+      <li><a href="/travel">Travel Assistance</a></li>
+      <li><a href="#abt-us">About</a></li>
+      <li><a href="#cnt-us">Contact</a></li>
+    </ul>
+  </nav>
+</label>
+  <div class="overlay"></div>
+</head>
+<body>
+    
+<div class="wrapper" id='home'>
+    <div class="sidebar">
+      <div>
+        <form class="search" id="search">
+          <input type="text" id="query" placeholder="Search..." />
+          <button><i class="fas fa-search"></i></button>
+        </form>
+        <div class="weather-icon">
+          <img id="icon" src="icons/sun/4.png" alt="" />
+        </div>
+        <div class="temperature">
+          <h1 id="temp">0</h1>
+          <span class="temp-unit">°C</span>
+        </div>
+        <div class="date-time">
+          <p id="date-time">Monday, 12:00</p>
+        </div>
+         <div class="d" id="d">
+          25 Mar
+      </div>
+        <div class="divider"></div>
+        <div class="condition-rain">
+          <div class="condition">
+            <i class="fas fa-cloud"></i>
+            <p id="condition">condition</p>
+          </div>
+          <div class="rain">
+            <i class="fas fa-tint"></i>
+            <p id="rain">perc - 0%</p>
+          </div>
+        </div>
+      </div>
+      <div class="location">
+        <div class="location-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="location-text">
+          <p id="location">location</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <nav>
+      <ul class="options units">
+        <button class="celcius active">°C</button>
+        <button class="fahrenheit">°F</button> 
+      </ul>
+    </nav>
+    <h2 class="heading" id="p">Past Details</h2>
+    <canvas id="hourlyWeatherChart" style="width: 300px; height: 100px"></canvas>
+
+
+    <details>
+      <summary>Click to search for specific date</summary>
+      
+    
+    <div class="pst" id="pst">
+        
+        <form class="datestart" id="datestart"> 
+          <input type="text" id="std" placeholder="YYYY-MM-DD" />
+          <button onclick="searchPast()" type="button" class="btn btn-danger" id="past_d"><i class="fas fa-search">Search</i></button>
+        </form>
+        <div class="cards" id="con">
+        <div class="pdetails" id="pdetails">
+        <div class="card2">
+          <h4 class="card-heading">Max Temp</h4>
+          <div class="content">
+            <p id="maxt">22.3</p>
+            <p class="dC">°C</p>
+          </div>
+        </div>
+
+        <div class="card2">
+          <h4 class="card-heading">Min Temp</h4>
+          <div class="content">
+            <p id="mint">12.6</p>
+            <p class="dC">°C</p>
+          </div>
+        </div>
+
+        <div class="card2">
+          <h4 class="card-heading">Temp</h4>
+          <div class="content">
+            <p id="tem">20.89</p>
+            <p class="dC">°C</p>
+          </div>
+        </div>
+        <div class="card2">
+          <h4 class="card-heading">Visibility</h4>
+          <div class="content">
+            <p id="condi">1</p>
+            <p class="cond">How's it?</p>
+          </div>
+        </div>
+        <div class="card2">
+          <h4 class="card-heading">Wind Speed</h4>
+          <div class="content">
+            <p id="speed">1</p>
+            <p>mph</p>
+          </div>
+        </div>
+        <div class="card2">
+          <h4 class="card-heading">Humidity</h4>
+          <div class="content">
+            <p id="humid">20.89</p>
+            <p class="hm">%</p>
+          </div>
+          </div>
+         
+        </div>
+        
+      </div>
+    </div>
+  </div>
+      
+
+      
+    </div>
+
+    
+
+
+  </div>
+</details>
+
+  
+  <script src="{{ url_for('static', filename='js/past_details.js') }}"></script>
+
+    
+    <footer class="bg">
+    <p class="text-footer">Copyright &copy; 2023 - All rights reserved </p>
+</footer>
+  </body>
+
+  </html>

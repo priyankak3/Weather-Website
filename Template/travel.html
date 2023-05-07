@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Check Route</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+   <input type="checkbox" id="hamburger-input" class="burger-shower" />
+  <label id="hamburger-menu" for="hamburger-input">
+    <nav id="sidebar-menu">
+    <h3 id="m">Menu</h3>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/highlights">Details</a></li>
+      <li><a href="/pollutants">Pollutants</a></li>
+      <li><a href="/past_details">Past Details</a></li>
+      <li><a href="/travel">Travel Assistance</a></li>
+      <li><a href="#abt-us">About</a></li>
+      <li><a href="#cnt-us">Contact</a></li>
+    </ul>
+  </nav>
+</label>
+  <div class="overlay"></div>
+  <script src="{{ url_for('static', filename='js/travel.js') }}"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <link
+  href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+crossorigin=""></script>
+<script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+    body{
+    background-color:whitesmoke;
+    }
+    #Details{
+        text-align: center;
+       
+    }
+    .marker {
+        background-image: url('https://i.imgur.com/WbMOfMl.png');
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .marker img {
+        height: 50px;
+        width: 50px;
+      }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    #mapid { 
+      z-index: 1;
+      height: 500px; }
+    th, td {
+      text-align: left;
+      padding: 8px;
+      border: 1px solid black;
+    }
+    th {
+      background-color: #ddd;
+      font-weight: bold;
+    }
+  </style>
+  
+</head>
+<body>
+  <h1>Plan your trip</h1>
+  <h2>Here you can find the best route for your journey based on climatic conditions</h2>
+  <hr>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+  <div id="mapid">
+   Scroll Down to enter the cities where you wish to travel.
+   </div>
+
+  <div class="Details">
+    <form id="routeForm">
+        <fieldset id="Details">
+            <legend><h2>Enter details</h2></legend>
+            <label for="source">Source:&emsp;&emsp;</label>
+            <input type="text" id="src" placeholder="Enter source city">
+            <label for="destination">Destination:</label>
+            <input type="text" id="dst" placeholder="Enter destination city">
+
+            <button id="getWeatherBtn" type="submit">Get Route</button>
+            <button id="refresh-btn"> Search Ag</button>
+
+        </fieldset>
+        </form>
+       <div class="Inst">
+        <h2 id="instruction"></h2>
+       </div>
+  </div>
+  
+</body>
+</html>
+

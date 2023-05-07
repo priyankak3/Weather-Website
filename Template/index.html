@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <input type="checkbox" id="hamburger-input" class="burger-shower" />
+  <label id="hamburger-menu" for="hamburger-input">
+    <nav id="sidebar-menu">
+    <h3 id="m">Menu</h3>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/highlights">Details</a></li>
+      <li><a href="/pollutants">Pollutants</a></li>
+      <li><a href="/past_details">Past Details</a></li>
+      <li><a href="/travel">Travel Assistance</a></li>
+      <li><a href="#abt-us">About</a></li>
+      <li><a href="#cnt-us">Contact</a></li>
+    </ul>
+  </nav>
+</label>
+  <div class="overlay"></div>
+    <title>CLIMASSIST</title>
+<link rel="icon" type="image/x-icon" href="icon.png">
+</head>
+
+<body class="background">
+    
+    
+    <div class="date-container">
+        <div class="time" id="time">
+            12:30 <span id="am-pm">PM</span>
+        </div>
+        <div class="date" id="date">
+            Monday, 25 May
+        </div>
+
+    </div>
+    <div class="serch">
+        <div class="title">CLIMASSIST</div>
+        <form class="search2" id="search2">
+          <input type="text" id="query" placeholder="Search..." />
+          <button onclick="searchTemperature()" type="button">Search</button>
+        </form>
+        <h1 id="tem"><span id="temp">{{ prediction_text }}</span>&deg;C</h1>
+        </div>
+        
+          
+            <div class="weather-status">
+                
+                <h2 id="city" >Mumbai </h2>
+                <h2 id="country" >IN </h2>
+                
+              
+                        
+            </div>
+          </div>
+           
+          <button id="current-button" type="button" class="curr">Click to view Current Location Data</button>
+        </div>
+       
+    
+        <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+      
+  
+</body>
+</html>

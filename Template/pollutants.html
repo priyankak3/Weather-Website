@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/pollutants.css') }}">
+     <title>CLIMASSIST</title>
+<link rel="icon" type="image/x-icon" href="icon.png">
+<input type="checkbox" id="hamburger-input" class="burger-shower" />
+  <label id="hamburger-menu" for="hamburger-input">
+    <!-- <img src="data:image/png;base64,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"> -->
+  <nav id="sidebar-menu">
+    <h3 id="m">Menu</h3>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/highlights">Details</a></li>
+      <li><a href="/pollutants">Pollutants</a></li>
+      <li><a href="/past_details">Past Details</a></li>
+      <li><a href="/travel">Travel Assistance</a></li>
+      <li><a href="#abt-us">About</a></li>
+      <li><a href="#cnt-us">Contact</a></li>
+    </ul>
+  </nav>
+</label>
+  <div class="overlay"></div>
+</head>
+<body>
+    
+<div class="wrapper" id='home'>
+    <div class="sidebar">
+      <div>
+        <form class="search" id="search">
+          <input type="text" id="query" placeholder="Search..." />
+          <button><i class="fas fa-search"></i></button>
+        </form>
+        <div class="weather-icon">
+          <img id="icon" src="icons/sun/4.png" alt="" />
+        </div>
+        <div class="temperature">
+          <h1 id="temp">0</h1>
+          <span class="temp-unit">°C</span>
+        </div>
+        <div class="date-time">
+          <p id="date-time">Monday, 12:00</p>
+        </div>
+         <div class="d" id="d">
+          25 Mar
+      </div>
+        <div class="divider"></div>
+        <div class="condition-rain">
+          <div class="condition">
+            <i class="fas fa-cloud"></i>
+            <p id="condition">condition</p>
+          </div>
+          <div class="rain">
+            <i class="fas fa-tint"></i>
+            <p id="rain">perc - 0%</p>
+          </div>
+        </div>
+      </div>
+      <div class="location">
+        <div class="location-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="location-text">
+          <p id="location">location</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <nav>
+      <ul class="options units">
+        <button class="celcius active">°C</button>
+        <button class="fahrenheit">°F</button>
+      </ul>
+    </nav>
+      <div class="pollution" id="pol">
+        <h2 class="heading" id="p">Today's Pollutants</h2>
+        <div class="cards" id="con">
+          <div class="card2">
+            <h4 class="p-heading">CO</h4>
+            <div class="content">
+              <p class="co" id="co">0</p>
+              <p>μg/m<sup>3</sup></p>
+              <p id="co-l">lev</p>
+            </div>
+          </div>
+          <div class="card2">
+            <h4 class="p-heading">Ozone</h4>
+            <div class="content">
+              <p class="oz" id="oz">0</p>
+              <p>μg/m<sup>3</sup></p>
+              <p id="oz-l">lev</p>
+            </div>
+          </div>
+          <div class="card2">
+            <h4 class="p-heading">SO<sub>2</sub></h4>
+            <div class="content">
+              <p class="so2" id="so2">0</p> <p>μg/m<sup>3</sup></p>
+              <p id="so2-l">lev</p>
+            </div>
+          </div>
+          <div class="card2">
+            <h4 class="p-heading">NO</h4>
+            <div class="content">
+              <p class="no" id="no">0</p>
+              <p>μg/m<sup>3</sup></p>
+              <p id="no-l">Good</p>
+            </div>
+          </div>
+          <div class="card2">
+            <h4 class="p-heading">NO<sub>2</sub></h4>
+            <div class="content">
+              <p class="no2" id="no2">0</p>
+              <p>μg/m<sup>3</sup></p>
+              <p id="no2-l">lev</p>
+            </div>
+          </div>
+          <div class="card2">
+            <h4 class="p-heading">NH<sub>3</sub></h4>
+            <div class="content">
+              <p class="nh3" id="nh3">0</p>
+              <p>μg/m<sup>3</sup></p>
+              <p id="nh3-l">Fair</p>
+            </div>
+          </div>
+        </div>
+      </div>
+<br>
+<br>
+      <div class="lev">
+        <h3>Good > Fair > Moderate > Poor > Very Poor</h3>
+      </div>
+
+
+
+      
+    </div>
+
+    
+
+
+  </div>
+
+  
+  <script src="{{ url_for('static', filename='js/pollutants.js') }}"></script>
+
+    
+    <footer class="bg">
+    <p class="text-footer">Copyright &copy; 2023 - All rights reserved </p>
+</footer>
+  </body>
+
+  </html>
