@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="login">
+        <h1>Temperature Prediction</h1>
+         <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict')}}"method="post">
+
+ <input type="text" id="field1" />
+<input type="text" id="field2" />
+<input type="text" id="field3" />
+<script>
+var myvalue = 0.36;
+document.getElementById('field1').setAttribute('value', myvalue);
+var myvalue2 = 38;
+document.getElementById('field2').setAttribute('value', myvalue2);
+var myvalue3 = 26;
+document.getElementById('field3').setAttribute('value', myvalue3);
+</sript>
+           <!-- <input type="text" name="Precip" placeholder="Precipitation" required="required" />-->
+       
+            <!-- <input type="text" name="tmax" placeholder="maximum_temperature" required="required" />-->
+            <!-- <input type="text" name="tmin" placeholder="minimum temperature" required="required" />-->
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+    
+       <br>
+       <br>
+       {{ prediction_text }}
+    
+     </div>
+
+<script>
+var myvalue = 0.36;
+document.getElementById('Precip').setAttribute('value', 36);
+var myvalue2 = 38;
+document.getElementById('tmax').setAttribute('value', 46);
+var myvalue3 = 26;
+document.getElementById('tmin').setAttribute('value', 29);
+</sript>
+</body>
+</html>
